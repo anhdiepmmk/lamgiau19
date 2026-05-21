@@ -1,0 +1,125 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f5f0e8;
+  min-height: 100vh;
+}
+
+.app {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.welcome {
+  text-align: center;
+  padding: 60px 20px;
+}
+.welcome h1 { font-size: 2rem; margin-bottom: 16px; color: #333; }
+.welcome p { font-size: 1.1rem; color: #555; margin-bottom: 8px; }
+.welcome .subtitle { font-size: 0.95rem; color: #777; margin-bottom: 24px; }
+
+.btn-primary {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  font-size: 1.2rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-primary:hover { transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+.btn-primary:active { transform: scale(0.95); }
+
+/* Progress Bar */
+.progress-bar {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  align-items: center;
+}
+.progress-step {
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  background: #ddd;
+  color: #888;
+  transition: all 0.3s;
+}
+.progress-step.active { background: #4CAF50; color: white; font-weight: bold; }
+.progress-step.done { background: #81C784; color: white; }
+
+/* Blocks */
+.families { display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; }
+.family-group { text-align: center; }
+.family-group h3 { font-size: 0.9rem; color: #666; margin-bottom: 12px; }
+.family-blocks { display: flex; gap: 12px; align-items: flex-end; }
+
+.block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  font-weight: bold;
+  color: white;
+  font-size: 0.7rem;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+.block:hover { transform: scale(1.1); box-shadow: 0 4px 16px rgba(0,0,0,0.3); }
+.block:active { transform: scale(0.95); }
+.block.explored { opacity: 0.7; outline: 2px solid gold; }
+.block.correct { animation: flash-green 0.5s; }
+.block.wrong { animation: flash-red 0.5s; }
+
+@keyframes flash-green { 0%,100% { box-shadow: none; } 50% { box-shadow: 0 0 20px 8px #4CAF50; } }
+@keyframes flash-red { 0%,100% { box-shadow: none; } 50% { box-shadow: 0 0 20px 8px #F44336; } }
+
+/* Phase UI */
+.phase-header { text-align: center; margin-bottom: 20px; }
+.phase-header h2 { font-size: 1.3rem; color: #333; }
+.phase-header p { color: #666; margin-top: 4px; }
+
+.question { text-align: center; font-size: 1.4rem; margin: 20px 0; color: #333; }
+.feedback { text-align: center; font-size: 1.2rem; margin: 12px 0; min-height: 36px; }
+.feedback.correct { color: #4CAF50; }
+.feedback.wrong { color: #F44336; }
+
+.tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  z-index: 10;
+  animation: fadeIn 0.2s;
+}
+@keyframes fadeIn { from { opacity: 0; transform: translateX(-50%) translateY(4px); } }
+
+/* Build phase */
+.build-area { text-align: center; margin: 20px 0; }
+.target-number { font-size: 1.8rem; font-weight: bold; color: #333; }
+.current-sum { font-size: 1.4rem; color: #2196F3; margin: 8px 0; }
+.build-items { display: flex; flex-wrap: wrap; gap: 4px; justify-content: center; margin: 8px 0; }
+.build-item { background: #e0e0e0; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; }
+.btn-reset {
+  background: #ff9800;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 8px;
+}
+.btn-reset:hover { background: #f57c00; }
